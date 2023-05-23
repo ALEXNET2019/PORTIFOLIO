@@ -31,7 +31,7 @@ class Cliente extends Model
         return  [
             'tipo_cliente' => 'required',
             'nome' => 'required',
-            'cpf_cnpj' => 'required|unique:clientes',
+            'cpf_cnpj' => 'required|unique:clientes,cpf_cnpj,' . $this->id . '',
         ];
     }
 

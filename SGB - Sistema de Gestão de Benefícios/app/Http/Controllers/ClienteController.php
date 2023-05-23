@@ -84,17 +84,11 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        /*
-        print_r($request->all());
-        echo '<hr>';
-        print_r($cliente->getAttributes());
-        */
-        //$cliente->update($request->all());
         $cliente = $this->cliente->find($id);
         if ($cliente === null) {
             return response()->json(['erro' => 'impossível realizar a atualização. O recurso solicitado não está disponivel'], 404);
         }
-        if ($request->method() === "PATCH") {
+         if ($request->method() === "PATCH") {
             $regrasDinamicas = array();
             foreach ($cliente->rules() as $input => $regra) {
                 if (array_key_exists($input, $request->all())) {

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class ClienteController extends Controller
 {
+    protected $cliente;
     //protected $cliente;
     public function __construct(Cliente $cliente)
     {
@@ -88,7 +89,7 @@ class ClienteController extends Controller
         if ($cliente === null) {
             return response()->json(['erro' => 'impossível realizar a atualização. O recurso solicitado não está disponivel'], 404);
         }
-         if ($request->method() === "PATCH") {
+        if ($request->method() === "PATCH") {
             $regrasDinamicas = array();
             foreach ($cliente->rules() as $input => $regra) {
                 if (array_key_exists($input, $request->all())) {

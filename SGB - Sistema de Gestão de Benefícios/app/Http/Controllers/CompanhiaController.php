@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class CompanhiaController extends Controller
 {
+    protected $companhia;
+
+    public function __construct(Companhia $companhia)
+    {
+        $this->companhia = $companhia;
+    }
+
     /**
      * Display a listing of the resource.
      *
